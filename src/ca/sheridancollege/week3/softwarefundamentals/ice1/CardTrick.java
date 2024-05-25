@@ -1,12 +1,6 @@
-/*
- * To modify this license header, choose License Headers in Project Properties.
- * To modify this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * This class populates a magic hand with 7 random Card objects,
@@ -28,7 +22,7 @@ public class CardTrick {
             magicHand[i] = card;
         }
         Card luckyCard = new Card();
-        luckyCard.setValue(7); 
+        luckyCard.setValue(8); 
         luckyCard.setSuit("Hearts"); 
 
         System.out.println("Magic Hand:");
@@ -38,28 +32,11 @@ public class CardTrick {
 
         System.out.println("Lucky Card: " + luckyCard);
 
-        int userValue;
-        String userSuit;
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Pick a card value between 1 and 13: ");
-            userValue = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-            System.out.print("Pick a suit (Hearts, Diamonds, Spades, Clubs): ");
-            userSuit = scanner.nextLine();
-        }
-
-        boolean found = isCardInHand(magicHand, userValue, userSuit);
-        if (found) {
-            System.out.println("The card is in the magic hand!");
-        } else {
-            System.out.println("The card is not in the magic hand.");
-        }
-
         boolean luckyFound = isCardInHand(magicHand, luckyCard.getValue(), luckyCard.getSuit());
         if (luckyFound) {
-            System.out.println("The lucky card is in the magic hand!");
+            System.out.println("Congratulations! You win! The lucky card is in the magic hand!");
         } else {
-            System.out.println("The lucky card is not in the magic hand.");
+            System.out.println("Sorry, you lose! The lucky card is not in the magic hand.");
         }
     }
 
