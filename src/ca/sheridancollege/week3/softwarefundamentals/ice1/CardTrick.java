@@ -27,12 +27,16 @@ public class CardTrick {
             card.setSuit(Card.SUITS[random.nextInt(4)]);
             magicHand[i] = card;
         }
+        Card luckyCard = new Card();
+        luckyCard.setValue(7); 
+        luckyCard.setSuit("Hearts"); 
 
-      
         System.out.println("Magic Hand:");
         for (Card card : magicHand) {
             System.out.println(card);
         }
+
+        System.out.println("Lucky Card: " + luckyCard);
 
         int userValue;
         String userSuit;
@@ -50,6 +54,13 @@ public class CardTrick {
         } else {
             System.out.println("The card is not in the magic hand.");
         }
+
+        boolean luckyFound = isCardInHand(magicHand, luckyCard.getValue(), luckyCard.getSuit());
+        if (luckyFound) {
+            System.out.println("The lucky card is in the magic hand!");
+        } else {
+            System.out.println("The lucky card is not in the magic hand.");
+        }
     }
 
     public static boolean isCardInHand(Card[] hand, int value, String suit) {
@@ -61,5 +72,3 @@ public class CardTrick {
         return false;
     }
 }
-
-    
